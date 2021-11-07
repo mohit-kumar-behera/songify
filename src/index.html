@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta link-colorarset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta link-colorarset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-	<title>Listen Music</title>
+    <title>Songify</title>
 
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
-	<!--FONT AWESOME-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--FONT AWESOME-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-	<!--GOOGLE FONTS-->
-  	<link rel="preconnect" href="https://fonts.gstatic.com">
-  	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&family=Nunito:wght@200;300;400;700;800&family=Open+Sans:wght@300;400;600;800&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
-
-</head>
-<body>
-
-	<div class="container rounded">
-		<div class="row rounded">
-			<div class="col-6 left-panel">
-				<h4 class="panel-head">Playlist</h4>
-				<div class="music-collection-wrapper mt-3">
-					
-					<!-- Data is fetched from Javascript Object -->
-					<!-- <div class="music-collection d-flex justify-content-between" tabindex="0">
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&family=Nunito:wght@200;300;400;700;800&family=Open+Sans:wght@300;400;600;800&family=Roboto:wght@100;300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container rounded">
+      <div class="row rounded">
+        <div class="col-6 left-panel">
+          <h4 class="panel-head">Playlist</h4>
+          <div class="music-collection-wrapper mt-3">
+            <!-- Data is fetched from Javascript Object -->
+            <!-- <div class="music-collection d-flex justify-content-between" tabindex="0">
 						<div class="d-flex">
 							<div class="music-img--sm">
 								<img src="image/cute.jpg" class="music-img img-fluid">
@@ -54,82 +60,117 @@
 							</div>
 						</div>					
 					</div> -->
+          </div>
+        </div>
 
-				</div>
-			</div>
+        <div class="col-6 right-panel">
+          <div class="music-player">
+            <h4 class="panel-head">Now Playing</h4>
 
-			<div class="col-6 right-panel">
-				<div class="music-player">
-					<h4 class="panel-head">Now Playing</h4>
-					
-					<div class="music-thumbnail-wrapper">
-						<audio id="music-player" ontimeupdate="updateProgressSection()">
-					        <source id="music-source"/>
-					        Audio not supported
-					    </audio>
+            <div class="music-thumbnail-wrapper">
+              <audio id="music-player" ontimeupdate="updateProgressSection()">
+                <source id="music-source" />
+                Audio not supported
+              </audio>
 
-						<img src="image/headphone.jpg" class="music-thumbnail-img">
-						<h4 class="music-thumbnail-title">Select a Song</h4>
+              <img src="image/headphone.jpg" class="music-thumbnail-img" />
+              <h4 class="music-thumbnail-title">Select a Song</h4>
 
-						<div class="volume-controller d-flex">
-							<div class="d-flex flex-column">
-								<button type="button" class="btn--volume" data-volumeInc="0.05"><i class="fa fa-volume-up"></i></button>
-								<button type="button" class="btn--volume" data-volumeInc="-0.05"><i class="fa fa-volume-down"></i></button>
-							</div>
-							<div class="volume-indicator">
-								<div class="volume-bar" style="height:0"></div>
-							</div>
-						</div>
-					</div>
+              <div class="volume-controller d-flex">
+                <div class="d-flex flex-column">
+                  <button
+                    type="button"
+                    class="btn--volume"
+                    data-volumeInc="0.05"
+                  >
+                    <i class="fa fa-volume-up"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn--volume"
+                    data-volumeInc="-0.05"
+                  >
+                    <i class="fa fa-volume-down"></i>
+                  </button>
+                </div>
+                <div class="volume-indicator">
+                  <div class="volume-bar" style="height: 0"></div>
+                </div>
+              </div>
+            </div>
 
-					<div class="music-controller-wrapper">
-						<div>
-							<div class="music-progress-wrapper">
-								<div class="music-duration d-flex justify-content-between">
-									<small class="music-duration--start">00:00</small>
-									<small class="music-duration--end">00:00</small>
-								</div>
-								
-								<div class="music-prgress-controller d-flex justify-content-between">
-									<div class="music-progress--reverse">
-										<button type="button" class="btn--fwdRev" data-skip="-5"><i class="fa fa-undo"></i></button>
-									</div>
+            <div class="music-controller-wrapper">
+              <div>
+                <div class="music-progress-wrapper">
+                  <div class="music-duration d-flex justify-content-between">
+                    <small class="music-duration--start">00:00</small>
+                    <small class="music-duration--end">00:00</small>
+                  </div>
 
-									<div class="music-progress align-self-center">
-										<div class="music-progress--bar" style="width: 0"></div>
-									</div>
+                  <div
+                    class="
+                      music-prgress-controller
+                      d-flex
+                      justify-content-between
+                    "
+                  >
+                    <div class="music-progress--reverse">
+                      <button type="button" class="btn--fwdRev" data-skip="-5">
+                        <i class="fa fa-undo"></i>
+                      </button>
+                    </div>
 
-									<div class="music-progress--forward">
-										<button type="button" class="btn--fwdRev" data-skip="5"><i class="fa fa-undo alt--redo"></i></button>	
-									</div>								
-								</div>
-							</div>
+                    <div class="music-progress align-self-center">
+                      <div class="music-progress--bar" style="width: 0"></div>
+                    </div>
 
-							<div class="music-control-wrapper">
-								<div class="music-control d-flex justify-content-center">
-									<div class="music-control--nextPrev align-self-end">
-										<button type="button" class="btn--musicControl btn--nextPrev" data-next="-1"><i class="fa fa-step-backward"></i></button>
-									</div>
+                    <div class="music-progress--forward">
+                      <button type="button" class="btn--fwdRev" data-skip="5">
+                        <i class="fa fa-undo alt--redo"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
 
-									<div class="music-control--playPause">
-										<button type="button" class="btn--musicControl btn--playPause"><i class=""></i></button>
-									</div>
+                <div class="music-control-wrapper">
+                  <div class="music-control d-flex justify-content-center">
+                    <div class="music-control--nextPrev align-self-end">
+                      <button
+                        type="button"
+                        class="btn--musicControl btn--nextPrev"
+                        data-next="-1"
+                      >
+                        <i class="fa fa-step-backward"></i>
+                      </button>
+                    </div>
 
-									<div class="music-control--nextPrev align-self-end">
-										<button type="button" class="btn--musicControl btn--nextPrev" data-next="1"><i class="fa fa-step-forward"></i></button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+                    <div class="music-control--playPause">
+                      <button
+                        type="button"
+                        class="btn--musicControl btn--playPause"
+                      >
+                        <i class=""></i>
+                      </button>
+                    </div>
 
-				</div>
-			</div>
-		</div>
-	</div>
+                    <div class="music-control--nextPrev align-self-end">
+                      <button
+                        type="button"
+                        class="btn--musicControl btn--nextPrev"
+                        data-next="1"
+                      >
+                        <i class="fa fa-step-forward"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
-	<script type="text/javascript" src="script.js"></script>
-
-</body>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
 </html>
